@@ -1,5 +1,8 @@
 import "./globals.css";
 import Link from "next/link";
+import Script from "next/script";
+
+const ADSENSE_CLIENT = "ca-pub-7844168923539235";
 
 export const metadata = {
   metadataBase: new URL("https://tools.ifvest.kr"),
@@ -44,6 +47,14 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko" className="h-full antialiased">
+      <head>
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
         <header className="border-b border-slate-200 bg-white">
           <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
