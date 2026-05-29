@@ -3,6 +3,7 @@ import Link from "next/link";
 import Script from "next/script";
 
 const ADSENSE_CLIENT = "ca-pub-7844168923539235";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim() || "G-D9CBYVDQYF";
 
 export const metadata = {
   metadataBase: new URL("https://tools.ifvest.kr"),
@@ -48,6 +49,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko" className="h-full antialiased">
       <head>
+        {/* Google Analytics */}
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+
+        {/* Google AdSense */}
         <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}

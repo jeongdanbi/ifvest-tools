@@ -22,6 +22,13 @@ const calculators = [
     desc: "양도차익 입력 → 일반 22% vs RIA 시점별 공제(100%/80%/50%) 절세액 즉시 비교",
     available: true,
   },
+  {
+    href: "/fire-calculator",
+    badge: "NEW",
+    title: "FIRE 계산기 (한국형)",
+    desc: "양도세 22% + 건보료까지 반영한 현실 반영형 조기은퇴 계산기. 필요 자산과 30년 인출 시뮬레이션 확인",
+    available: true,
+  },
 ];
 
 export default function Home() {
